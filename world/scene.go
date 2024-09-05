@@ -7,6 +7,7 @@ import (
 type Scene struct {
 	Description string
 	Objects     []*Object
+	Characters  []*Character
 }
 
 func NewScene(desc string, objects []*Object) *Scene {

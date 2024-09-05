@@ -34,7 +34,7 @@ func main() {
 	client := gpt.NewClient(apiKey, apiEndpoint)
 
 	// Create a new character
-	character, err := world.NewCharacter(client, []string{"Your goal is to get out of the room"})
+	character, err := world.NewCharacter(client, []string{"Your goal is to get out of the room"}, "Guy")
 
 	if err != nil {
 		panic(err)
@@ -63,7 +63,7 @@ func Room1() *world.Scene {
 	table := world.NewObject("table", "a wooden table")
 	key := world.NewObject("key", "a shiny key")
 	door := world.NewObject("door", "a locked door")
-	scene := world.NewScene("There is a big room", []*world.Object{table, key, door})
+	scene := world.NewScene("You are in a big room", []*world.Object{table, key, door})
 
 	key.SetPosition("on", table)
 	key.SetAction("take", func(c *world.Character) string {
@@ -117,7 +117,7 @@ func Room2() *world.Scene {
 	key := world.NewObject("key", "a shiny key")
 	door := world.NewObject("door", "a locked door")
 	plate := world.NewObject("plate", "a metal plate that seem to be electrified")
-	scene := world.NewScene("There is a big room", []*world.Object{table, key, door, plate})
+	scene := world.NewScene("You are in a big room", []*world.Object{table, key, door, plate})
 
 	key.SetPosition("on", plate)
 	plate.SetPosition("on", table)
@@ -168,4 +168,8 @@ func Room2() *world.Scene {
 		return "You flip the table over. Anything on it falls to the floor."
 	})
 	return scene
+}
+
+func Room3() *world.Scene {
+	return nil
 }
